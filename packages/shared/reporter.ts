@@ -2,9 +2,9 @@ import { Reporter } from "@playwright/test/reporter";
 export default class DefaultReporter implements Reporter {
   onTestBegin(test, result) {
     console.log(
-      `${test.title} started ${result.retry}/${test.retries}: expected ${
+      `onTestBegin ${test.title} ${result.retry}/${test.retries}: expected ${
         test.expectedStatus
-      }, actual: ${test.results
+      },  test results: ${test.results
         .map((r) => `[${r.retry}: ${r.status}]`)
         .join(", ")}`
     );
@@ -13,9 +13,9 @@ export default class DefaultReporter implements Reporter {
   onTestEnd(test, result) {
     console.log(`${test.title} result: ${result.status}`);
     console.log(
-      `${test.title} ended ${result.retry}/${test.retries}: expected ${
+      `onTestEnd ${test.title} ${result.retry}/${test.retries}: expected ${
         test.expectedStatus
-      }, actual: ${test.results
+      }, test results: ${test.results
         .map((r) => `[${r.retry}: ${r.status}]`)
         .join(", ")}\n`
     );
