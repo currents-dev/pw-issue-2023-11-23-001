@@ -59,9 +59,9 @@ onTestEnd B 0/1: expected passed, test results: [0: failed]
 
 The problems are:
 
-- after test `A` fails, the subsequent tests in a serial group should be marked as `skipped` and invoke `onTestBegin`. `1.40` doesn't invoke `onTestBegin` for test `B` when `A` fails.
+- after test `A` fails, the subsequent test results in a serial group should be marked as `skipped` and invoke `onTestBegin`. `1.40` doesn't invoke `onTestBegin` for test `B` when `A` fails.
 
-- test `B` doesn't run according to the configured # of retries in `1.40` - `onTestEnd` only runs one for test `B`
+- test `B` doesn't run according to the configured # of retries in `1.40` - `onTestEnd` only runs one for test `B`. Working correctly in `1.39` - it runs 1 configured retry.
 
 ## How to reproduce
 
